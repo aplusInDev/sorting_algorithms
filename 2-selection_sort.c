@@ -1,5 +1,5 @@
-#include "sort.h"
 #include <stdbool.h>
+#include "sort.h"
 
 /**
  * selection_sort - sorts an array of integers in ascending order
@@ -11,32 +11,28 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	size_t n = 0, i, idx;
-	int min;
-	bool swapped = false;
+	int min_idx, temp;
+	size_t i, j;
 
-	if (array == NULL || size <= 1)
+	if (array == NULL || size < 2)
 		return;
-	while (n < size - 1)
+
+	for (i = 0; i < size - 1; i++)
 	{
-		min = array[n];
-		for (i = n + 1; i < size; i++)
+		min_idx = i;
+
+		for (j = i + 1; j < size; j++)
 		{
-			if (min > array[i])
+			if (array[j] < array[min_idx])
 			{
-				min = array[i];
-				idx = i;
+				min_idx = j;
 			}
 		}
-		if (array[n] > min)
-		{
-			array[idx] = array[n];
-			array[n] = min;
-			print_array(array, size);
-			swapped = true;
-		}
-		if (swapped == false)
-			break;
-		n++;
+
+		temp = array[i];
+		array[i] = array[min_idx];
+		array[min_idx] = temp;
+		print_array(array, size);
 	}
 }
+
