@@ -1,7 +1,6 @@
 #include "sort.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <stdbool.h>
 
 /**
  * merge_sort_recursive - Initiates merge sort recursively
@@ -12,7 +11,6 @@
 void merge_sort_recursive(int *array, int *temp, size_t size)
 {
 	size_t half_size = size / 2, i = 0, j = 0, k;
-	bool cond;
 
 	if (size < 2)
 		return;
@@ -26,9 +24,7 @@ void merge_sort_recursive(int *array, int *temp, size_t size)
 	printf("[right]: ");
 	print_array(array + half_size, size - half_size);
 	for (k = 0; k < size; k++)
-	{
-		cond = i < half_size && array[i] < (array + half_size)[j];
-		if (j >= size - half_size || cond)
+		if (j >= size - half_size || (i < half_size && array[i] < (array + half_size)[j]))
 		{
 			temp[k] = array[i];
 			i++;
@@ -38,7 +34,6 @@ void merge_sort_recursive(int *array, int *temp, size_t size)
 			temp[k] = (array + half_size)[j];
 			j++;
 		}
-	}
 	for (k = 0; k < size; k++)
 		array[k] = temp[k];
 	printf("[Done]: ");

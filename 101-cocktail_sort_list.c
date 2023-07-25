@@ -7,8 +7,7 @@
  * @prev_node: Pointer to the previous node
  * Return: void
  */
-void swap_nodes_right(listint_t **list, listint_t *current,
-		listint_t *prev_node)
+void swap_nodes_right(listint_t **list, listint_t *current, listint_t *prev_node)
 {
 	prev_node = current->prev;
 	prev_node->next->prev = prev_node->prev;
@@ -33,8 +32,7 @@ void swap_nodes_right(listint_t **list, listint_t *current,
  * @next_node: Pointer to the next node
  * Return: void
  */
-void swap_nodes_left(listint_t **list, listint_t *current,
-		listint_t *next_node)
+void swap_nodes_left(listint_t **list, listint_t *current, listint_t *next_node)
 {
 	if (current->prev)
 		current->prev->next = next_node;
