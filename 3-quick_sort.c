@@ -2,7 +2,8 @@
 
 void swap(int *a, int *b);
 /**
- * print_sort - Function that Prints the array during partitioning for Quick sort.
+ * print_sort - Function that Prints the array
+ * during partitioning for Quick sort.
  * @array: Array to be printed
  * @size: Size of the array
  * @init: Should initialize the array
@@ -61,7 +62,8 @@ size_t partition(int array[], size_t size)
 
 
 /**
- * quick_sort - Sorts an array of integers in ascending order using Quick sort algorithm
+ * quick_sort - Sorts an array of integers in
+ * ascending order using Quick sort algorithm
  * @array: Pointer to the array to be sorted
  * @size: Size of the array
  * Return: void
