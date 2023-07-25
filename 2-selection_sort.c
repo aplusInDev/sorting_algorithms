@@ -1,4 +1,3 @@
-#include <stdbool.h>
 #include "sort.h"
 
 /**
@@ -11,28 +10,24 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	int min_idx, temp;
-	size_t i, j;
-
-	if (array == NULL || size < 2)
-		return;
+	int tmp;
+	size_t i, j, index = 0;
 
 	for (i = 0; i < size - 1; i++)
 	{
-		min_idx = i;
-
+		index = i;
 		for (j = i + 1; j < size; j++)
 		{
-			if (array[j] < array[min_idx])
-			{
-				min_idx = j;
-			}
+			if (array[j] < array[index])
+				index = j;
 		}
-
-		temp = array[i];
-		array[i] = array[min_idx];
-		array[min_idx] = temp;
-		print_array(array, size);
+		if (index != i)
+		{
+			tmp = array[i];
+			array[i] = array[index];
+			array[index] = tmp;
+			print_array(array, size);
+		}
 	}
 }
 
